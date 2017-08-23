@@ -1,8 +1,9 @@
 package com.bourne;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.Map;
+import java.util.NavigableMap;
+import java.util.TreeMap;
 
 class CumRetCalculator {
 
@@ -35,41 +36,6 @@ class CumRetCalculator {
         //here is the answer
         return (cumprod / 1) - 1;
     }
-
-
-
-
-    public static void main(String args[]) {
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-        HashMap<Date, Double> unsortedMap = new HashMap<>();
-        try {
-            unsortedMap.put(sdf.parse("2015-01-10"), 0.1);
-            unsortedMap.put(sdf.parse("2015-02-10"), 0.05);
-            unsortedMap.put(sdf.parse("2015-04-10"), 0.15);
-            unsortedMap.put(sdf.parse("2015-04-15"), -0.10);
-            unsortedMap.put(sdf.parse("2015-06-10"), -0.12);
-        } catch (ParseException e) {
-            System.err.print(e);
-        }
-
-        CumRetCalculator crc = new CumRetCalculator(unsortedMap);
-        try {
-            Date baseDate = sdf.parse("2015-02-01");
-            Date toDate = sdf.parse("2015-06-30");
-            System.out.println(crc.findCumReturn(toDate, baseDate));
-        } catch (ParseException e) {
-            System.err.println(e);
-        } catch (IllegalArgumentException e) {
-            System.err.println(e);
-
-
-        }
-
-
-    }
-
 
 
 }
